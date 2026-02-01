@@ -1,5 +1,6 @@
 # 🎥 Chat with YouTube Video
 
+![Demo](assets/demo.gif)
 An interactive **Streamlit app** that lets you paste a YouTube video URL and:
 
 - 📄 Automatically extract the transcript
@@ -7,8 +8,6 @@ An interactive **Streamlit app** that lets you paste a YouTube video URL and:
 - 📝 Generate a full video summary with one click
 
 Powered by **LangChain**, **FAISS**, and **OpenAI models**.
-
-![Demo](assets/demo.gif)
 
 ## Features
 
