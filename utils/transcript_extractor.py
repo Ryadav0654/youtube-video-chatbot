@@ -28,7 +28,7 @@ def fetch_transcript(video_id):
 
         # Join transcript text, skipping [Music], [Applause], etc.
         full_transcript = " ".join(
-            item.text for item in fetched_transcript if not item.text.startswith("[")
+            snippet.text for snippet in fetched_transcript if not snippet.text.startswith("[")
         )
         return full_transcript
     except Exception:

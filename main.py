@@ -10,7 +10,7 @@ from rag_pipeline import split_transcript_and_store, ask_query, summarize_transc
 def main():
     st.set_page_config(page_title="Chat with YouTube Video", layout="centered")
 
-    st.title("🎥 Chat with a YouTube Video")
+    st.title("Chat with a YouTube Video", anchor=None, width="stretch")   
     st.write("Paste a YouTube link and ask questions about the video.")
 
     # Session State Init
@@ -34,7 +34,7 @@ def main():
         video_id = extract_video_id(youtube_url)
 
         if not video_id:
-            st.error("❌ Invalid YouTube URL")
+            st.error("Invalid YouTube URL")
         else:
             st.video(youtube_url)
 
@@ -47,17 +47,17 @@ def main():
                     st.session_state.retriever = retriever
                     st.session_state.chat_history = []
 
-                    st.success("✅ Video loaded! You can now ask questions.")
+                    st.success("Video loaded! You can now ask questions.")
                 except Exception as e:
                     st.error(f"Failed to load video: {e}")
 
     # Chat Section
     if st.session_state.retriever:
-        st.subheader("💬 Chat")
+        st.subheader("Chat")
 
         col1, col2 = st.columns([1, 3])
         with col1:
-            summarize_clicked = st.button("📝 Summarize", use_container_width=True)
+            summarize_clicked = st.button("Summarize", use_container_width=True)
 
         if summarize_clicked:
             with st.spinner("Summarizing the video..."):
@@ -104,7 +104,7 @@ def main():
                     st.error(f"Failed to get answer: {e}")
 
     else:
-        st.info("⬆️ Load a YouTube video to start chatting.")
+        st.info("Load a YouTube video to start chatting.")
 
 
 if __name__ == "__main__":
